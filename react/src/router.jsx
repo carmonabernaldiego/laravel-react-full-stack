@@ -1,11 +1,11 @@
-import { createBrowserRouter } from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import Login from "./views/Login.jsx";
 import Signup from "./views/Signup.jsx";
 import Users from "./views/Users.jsx";
+import Dashboard from "./views/Dashboard.jsx";
 import NotFound from "./views/NotFound.jsx";
 import DefaultLayout from "./components/DefaultLayout.jsx";
 import GuestLayout from "./components/GuestLayout.jsx";
-import Dashboard from "./views/Dashboard.jsx";
 
 const router = createBrowserRouter([
   {
@@ -13,16 +13,16 @@ const router = createBrowserRouter([
     element: <DefaultLayout/>,
     children: [
       {
-        path: '/',
+        index: true,
         element: <Users/>
       },
       {
         path: '/dashboard',
-        element: <Dashboard />
+        element: <Dashboard/>
       },
       {
         path: '/users',
-        element: <Users />
+        element: <Users/>
       }
     ]
   },
@@ -32,18 +32,18 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/login',
-        element: <Login />
+        element: <Login/>
       },
       {
         path: '/signup',
-        element: <Signup />
+        element: <Signup/>
       }
     ]
   },
   {
     path: '/* ',
-    element: <NotFound />
+    element: <NotFound/>
   }
 ])
 
-export default router;
+export default router

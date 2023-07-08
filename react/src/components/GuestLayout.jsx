@@ -5,12 +5,14 @@ export default function GuestLayout() {
   const {token} = useStateContext()
 
   if (token) {
-    return <Navigate to="/" />
+    return <Navigate to="/"/>
   }
 
-  return(
-    <div>
-      <Outlet />
+  return (
+    <div className="login-signup-form animated fadeInDown">
+      <div className="form">
+        <Outlet/>
+      </div>
     </div>
   )
 }
