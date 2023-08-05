@@ -39,7 +39,7 @@ export default function Signup() {
   return (
     <form onSubmit={onSubmit}>
       <h1 className="title">
-        Signup for free
+        Registrate gratis
       </h1>
       {
         errors && <div className="alert">
@@ -48,13 +48,13 @@ export default function Signup() {
           ))}
         </div>
       }
-      <input ref={nameRef} placeholder="Full Name"/>
-      <input ref={emailRef} type="email" placeholder="Email Address"/>
-      <input ref={passwordRef} type="password" placeholder="Password"/>
-      <input ref={passwordConfirmationRef} type="password" placeholder="Password Confirmation"/>
-      <button className="btn btn-block">Signup</button>
+      <input ref={nameRef} placeholder="Nombre completo"/>
+      <input ref={emailRef} type="email" placeholder="Correo electrónico"/>
+      <input ref={passwordRef} type="password" placeholder="Contraseña"/>
+      <input ref={passwordConfirmationRef} type="password" placeholder="Confirmar contraseña"/>
+      <button className="btn btn-block">Registrarse</button>
       <p className="message">
-        Already Registered? <Link to="/login">Sign in</Link>
+        ¿Ya estás registrado? <Link to="/login">Iniciar sesión</Link>
       </p>
     </form>
   )

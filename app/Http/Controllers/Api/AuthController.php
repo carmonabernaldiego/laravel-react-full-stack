@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    protected $maxAttempts = 3; // Default is 5
+    protected $decayMinutes = 2;
+
     public function signup(SignupRequest $request)
     {
         $data = $request->validated();
@@ -32,7 +35,7 @@ class AuthController extends Controller
 
         if (!Auth::attempt($credentials)) {
             return response([
-                'message' => 'Provided email address or password is incorrect'
+                'message' => 'Su correo electrónico o contraseña no coinciden. Inténtelo de nuevo.'
             ], 422);
         }
 

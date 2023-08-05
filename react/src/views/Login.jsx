@@ -35,13 +35,19 @@ export default function Login() {
               email: [response.data.message]
             });
           }
+        } else if (response && response.status === 429) {
+          if (response.data.message === 'Too Many Attempts.') {
+            setErrors({
+              email: ['Demasiados intentos. Por favor, inténtalo de nuevo más tarde.']
+            });
+          }
         }
       })
   }
   return (
     <form onSubmit={onSubmit}>
       <h1 className="title">
-        Login into your account
+        Inicio de sesión
       </h1>
       {
         errors && <div className="alert">
@@ -50,11 +56,11 @@ export default function Login() {
           ))}
         </div>
       }
-      <input ref={emailRef} type="email" placeholder="Email"/>
-      <input ref={passwordRef} type="password" placeholder="Password"/>
-      <button className="btn btn-block">Login</button>
+      <input ref={emailRef} type="email" placeholder="Correo electrónico"/>
+      <input ref={passwordRef} type="password" placeholder="Contraseña"/>
+      <button className="btn btn-block">Iniciar sesión</button>
       <p className="message">
-        Not Registered? <Link to="/signup">Create an account</Link>
+        ¿No estás registrado? <Link to="/signup">Crear cuenta</Link>
       </p>
     </form>
   )
