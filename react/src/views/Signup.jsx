@@ -32,6 +32,12 @@ export default function Signup() {
         const response = error.response;
         if (response && response.status === 422) {
           setErrors(response.data.errors);
+        } else if (response && response.status === 429) {
+          if (response.data.message === 'Too Many Attempts.') {
+            setErrors({
+              email: ['Demasiados intentos. Por favor, inténtalo de nuevo más tarde.']
+            });
+          }
         }
       })
   }
